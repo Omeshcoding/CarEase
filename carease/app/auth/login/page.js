@@ -30,7 +30,18 @@ const page = () => {
       return;
     }
 
-    router.push('/carlist');
+    // Check if the user was trying to access a specific page before login
+    try {
+      const redirectTo = sessionStorage.getItem('redirectAfterLogin');
+      if (redirectTo) {
+        sessionStorage.removeItem('redirectAfterLogin');
+        router.push(redirectTo);
+      } else {
+        router.push('/carlist');
+      }
+    } catch (_) {
+      router.push('/carlist');
+    }
   };
 
   return (
