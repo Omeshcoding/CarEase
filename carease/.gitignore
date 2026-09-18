@@ -35,3 +35,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Project Documentation
+/docs/improvements_log.md
+/docs/issue_tracker.md
+
+/docs/tradeoffs_log.md
+/docs/challenges_log.md
+
+/docs/api_contracts.md
+/docs/caching_strategy.md
+/docs/ADR.md
+/docs/master_docs.md
+/docs/tech_paradigms.md
+/docs/optimization_guidelines.md
+
