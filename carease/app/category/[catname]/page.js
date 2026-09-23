@@ -1,6 +1,7 @@
 'use client';
 
 import Card from '@/components/Card';
+import ShowroomLoader from '@/components/ShowroomLoader';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -43,11 +44,11 @@ const CategoryName = ({ params }) => {
       {/* MAIN CONTENT AREA */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mt-12">
         {isLoading ? (
-          <div className="w-full flex justify-center py-20">
-            <div className="animate-pulse text-[#E11D48] font-bold tracking-widest uppercase">
-              Loading Garage...
-            </div>
-          </div>
+          <ShowroomLoader
+            fullScreen={false}
+            text="LOADING VEHICLES..."
+            subtext={`Fetching ${params.catname} Inventory`}
+          />
         ) : (
           <div className="flex justify-center gap-16 xl:gap-20 flex-wrap h-auto">
             {carsByCategory.length > 0 ? (
