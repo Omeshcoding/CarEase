@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import CarSelectModal from '@/components/CarSelectModal';
 import ComparisonTable from '@/components/ComparisonTable';
+import ShowroomLoader from '@/components/ShowroomLoader';
 
 const ComparePage = ({ params }) => {
   const [carA, setCarA] = useState(null);
@@ -105,14 +106,10 @@ const ComparePage = ({ params }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center text-white">
-        <div className="animate-pulse flex flex-col items-center">
-          <div className="w-16 h-16 border-4 border-[#E11D48] border-t-transparent rounded-full animate-spin mb-4"></div>
-          <p className="tracking-widest uppercase text-white/50">
-            Initializing Telemetry...
-          </p>
-        </div>
-      </div>
+      <ShowroomLoader
+        text="INITIALIZING TELEMETRY..."
+        subtext="Syncing Specs & Calibrating Standoff"
+      />
     );
   }
 
