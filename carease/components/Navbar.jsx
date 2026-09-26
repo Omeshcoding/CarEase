@@ -20,9 +20,9 @@ const Navbar = () => {
     return setShow(!show);
   };
 
-  if (status === 'loading') {
-    return <p>Loading...</p>;
-  }
+  // if (status === 'loading') {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
     <nav className="nav text-lg">
