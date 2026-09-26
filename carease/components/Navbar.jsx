@@ -120,7 +120,8 @@ const ComparisonBadge = ({ mobile }) => {
       {/* Guest Login Nudge Toast */}
       {showGuestToast && (
         <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 w-44 bg-black border border-[#E11D48] text-white text-[11px] text-center rounded-lg px-3 py-2 z-50 shadow-[0_0_12px_rgba(225,29,72,0.4)] animate-fade-in">
-          <span className="text-[#E11D48] font-bold">Login</span> to see your comparisons!
+          <span className="text-[#E11D48] font-bold">Login</span> to see your
+          comparisons!
           <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-black border-l border-t border-[#E11D48] rotate-45" />
         </div>
       )}
@@ -208,6 +209,7 @@ const Navbar = () => {
   const toogleNavbar = () => {
     return setShow(!show);
   };
+  console.log(status, session);
 
   return (
     <nav className="nav text-lg">
