@@ -134,7 +134,7 @@ const Hero = () => {
       `}</style>
 
       {/* Search + heading */}
-      <div className="text-center mt-28 lg:w-[60%] mx-auto relative z-[999]">
+      <div className="text-center mt-28 lg:w-[60%] mx-auto relative z-30">
         {showGuestToast && (
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[120%] w-64 bg-black border border-[#E11D48] text-white text-[12px] text-center rounded-lg px-4 py-3 shadow-[0_0_15px_rgba(225,29,72,0.4)] animate-fade-in pointer-events-auto">
             <span className="text-[#E11D48] font-bold text-sm">
@@ -172,21 +172,32 @@ const Hero = () => {
             onKeyDown={handleKeyDown}
           />
           {search && (
-            <div className="absolute flex flex-col bg-gray-200 rounded-sm w-[85%] ml-4 sm:w-[80%] sm:ml-10 md:ml-14 text-left px-8 py-2 -bottom-30 capitalize">
-              {models.map((item, index) => (
-                <div
-                  key={item.id}
-                  onClick={(e) => handleResultClick(e, item?.id)}
-                  onMouseEnter={() => setSelectedIndex(index)}
-                  className={`text-sm md:text-lg cursor-pointer py-1 px-2 rounded-md transition-colors ${
-                    selectedIndex === index
-                      ? 'bg-[#E11D48] text-white'
-                      : 'hover:bg-gray-300 text-black hover:text-black'
-                  }`}
-                >
-                  {item?.model}{' '}
+            <div className="absolute flex flex-col bg-gray-200 rounded-lg shadow-lg w-[85%] ml-4 sm:w-[80%] sm:ml-10 md:ml-14 text-left px-6 py-3 -bottom-30 z-30">
+              {models.length > 0 ? (
+                models.map((item, index) => (
+                  <div
+                    key={item.id}
+                    onClick={(e) => handleResultClick(e, item?.id)}
+                    onMouseEnter={() => setSelectedIndex(index)}
+                    className={`text-sm md:text-lg cursor-pointer py-1.5 px-3 rounded-md transition-colors capitalize ${
+                      selectedIndex === index
+                        ? 'bg-[#E11D48] text-white'
+                        : 'hover:bg-gray-300 text-black hover:text-black'
+                    }`}
+                  >
+                    {item?.model}{' '}
+                  </div>
+                ))
+              ) : (
+                <div className="py-2 text-center text-gray-700">
+                  <p className="font-bold text-sm text-[#E11D48]">
+                    No vehicles found for &ldquo;{search}&rdquo;
+                  </p>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Try searching with different keywords, brand names, or categories (e.g., McLaren, BMW, SUV).
+                  </p>
                 </div>
-              ))}
+              )}
             </div>
           )}
           {isLoading ? (
