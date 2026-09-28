@@ -2,15 +2,18 @@ import OurBusiness from "./OurBusiness"
 
 const About = () => {
   return (
-    <>
-        <section className="flex flex-col text-center py-4 my-4">
-            <h1 className="text-[2rem] font-headings font-medium my-6 sm:text-[2.4rem] lg:text-[2.9rem]">Who we are</h1>
-            <p className="text-[1.1rem] font-paragraphs mx-6 sm:mx-28 sm:text-[1.5rem] md:mx-44">CareEase is your online destination for comparing cars with ease. We provide a straightforward platform where you can effortlessly explore and compare a variety of vehicles. Our goal is to make your car-comparing experience simple, enjoyable, and tailored to your needs.</p>
-        </section>
-        <OurBusiness />
-    </>
-    
-  )
-}
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 mt-16">
+      <section className="flex flex-col text-center py-6">
+        <h2 className="text-3xl sm:text-5xl font-black italic tracking-tight uppercase">
+          <span className="text-[#E11D48]">Who</span> We Are
+        </h2>
+        <p className="text-neutral-400 font-medium max-w-3xl mx-auto text-base sm:text-lg leading-relaxed mt-4">
+          CarEase is your premier automotive destination for comparing vehicles with precision and clarity. We provide a high-performance showroom platform where you can effortlessly explore specs, analyze head-to-head diagnostics, and discover the perfect drive tailored to your lifestyle.
+        </p>
+      </section>
+      <OurBusiness />
+    </div>
+  );
+};
 
 export default About
