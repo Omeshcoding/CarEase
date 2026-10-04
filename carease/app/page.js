@@ -13,9 +13,9 @@ export default function Home() {
       <About />
       <PopularBrands />
       <FeaturedComparison />
-      <div className="h-[300px] sm:h-[500px] lg:h-full ">
+      <section className="relative w-full h-[460px] sm:h-[540px] lg:h-[640px] bg-black overflow-hidden border-t border-b border-white/5">
         <VideoCarousels />
-      </div>
+      </section>
       <Footer />
     </main>
   );
