@@ -68,7 +68,7 @@ const FeaturedCarCard = ({
         href={`/carlist?search=${encodeURIComponent(search)}`}
         className="mt-6 w-full py-3 px-4 rounded-xl bg-white/5 hover:bg-[#E11D48] border border-white/10 hover:border-[#E11D48] text-xs font-bold uppercase tracking-wider text-neutral-300 hover:text-white transition-all text-center flex items-center justify-center gap-2 z-10"
       >
-        <span>Analyze Diagnostics</span>
+        <span>View Inventory</span>
         <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
       </Link>
     </div>
