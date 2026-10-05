@@ -41,21 +41,139 @@
   width: 100%;
 }
 
-/* .swiper-pagination-bullets {
-  display: flex !important; 
-  width: 100% !important; 
-  margin: 0 !important;
-} */
+/* --- Our Business Showroom Slider --- */
+.swiper {
+  cursor: grab !important;
+}
+.swiper:active,
+.swiper-grabbing,
+.swiper.swiper-grab:active {
+  cursor: grabbing !important;
+}
 
-.swiper-pagination-bullet {
-  background: #000 !important;
-  width: 23.3% !important;
-  /* height: 40px; */
-  border-radius: 0% !important;
+.swiper-pagination {
+  cursor: default !important;
+  position: absolute !important;
+  bottom: 24px !important;
+  left: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 20 !important;
+  padding: 0 16px !important;
+}
+
+.custom-bullet {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 8px 16px !important;
+  border-radius: 9999px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  width: auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  margin: 4px 6px !important;
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+
+.custom-bullet:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+  border-color: rgba(225, 29, 72, 0.4) !important;
+  cursor: pointer !important;
+}
+
+.custom-bullet.swiper-pagination-bullet-active {
+  background: #E11D48 !important;
+  color: #fff !important;
+  border-color: #E11D48 !important;
+  box-shadow: 0 0 15px rgba(225, 29, 72, 0.45) !important;
+  cursor: pointer !important;
+}
+
+/* Video Carousel Cinema Reel Styles */
+.video-reel-swiper .swiper-pagination {
+  position: absolute !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  width: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  z-index: 30 !important;
+  padding: 0 !important;
+}
+
+@media (min-width: 640px) {
+  .video-reel-swiper .swiper-pagination {
+    bottom: 32px !important;
+    right: 48px !important;
+    gap: 12px !important;
+  }
+}
+
+.video-bullet {
+  background: rgba(0, 0, 0, 0.65) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding: 6px 14px !important;
+  border-radius: 9999px !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+@media (min-width: 640px) {
+  .video-bullet {
+    padding: 8px 18px !important;
+    font-size: 12px !important;
+  }
+}
+
+.video-bullet:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+  border-color: rgba(225, 29, 72, 0.5) !important;
+  transform: translateY(-1px);
+}
+
+.video-bullet.swiper-pagination-bullet-active {
+  background: #E11D48 !important;
+  color: #fff !important;
+  border-color: #E11D48 !important;
+  box-shadow: 0 0 20px rgba(225, 29, 72, 0.6) !important;
+  transform: translateY(-1px);
+}
+
+.swiper-slide a,
+.swiper-slide button {
+  cursor: pointer !important;
+  position: relative !important;
+  z-index: 30 !important;
 }
 
 .nav {
-  @apply fixed top-0 w-full z-40 flex items-center justify-between px-6 sm:px-10  py-4 xl:py-2 text-black bg-gradient-to-t to-[#343131]/80 from-black/50  font-semibold;
+  @apply fixed top-0 w-full z-[1000] flex items-center justify-between px-6 sm:px-10 py-4 xl:py-2 text-black bg-gradient-to-t to-[#343131]/80 from-black/50 font-semibold;
 }
 .navlink {
   @apply py-1 w-full hover:scale-105 transition-all duration-150;
@@ -70,17 +188,6 @@
   @apply hover:text-[#E11D48] focus:text-[#E11D48];
 }
 
-@media (min-width: 452px) and (max-width: 637px) {
-  .brands-xsm {
-    height: 650px;
-  }
-}
-
-@media (min-width: 638px) and (max-width: 767px) {
-  .brands-xsm {
-    height: 550px;
-  }
-}
 
 
 /* Custom Scrollbar for HUD / specification panels */
