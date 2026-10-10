@@ -28,22 +28,22 @@ const featuredCars = [
 
 const FeaturedComparison = () => {
   return (
-    <section className="w-full bg-gradient-to-b from-[#121214] via-[#0d0d0f] to-black py-20 sm:py-28 border-t border-white/5">
+    <section id="featured" className="w-full bg-gradient-to-b from-neutral-100 via-[#141416] to-black py-20 sm:py-28 border-t border-neutral-200/60 scroll-mt-24">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Header */}
+        {/* Header (Light on top of gradient) */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="text-xs font-black uppercase tracking-widest text-[#E11D48] bg-[#E11D48]/10 px-3 py-1 rounded-full border border-[#E11D48]/30">
             Pinnacle Performance
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black italic tracking-tight uppercase text-white mt-4">
+          <h2 className="text-3xl sm:text-5xl font-black italic tracking-tight uppercase text-neutral-900 mt-4">
             <span className="text-[#E11D48]">Featured</span> Showdowns
           </h2>
-          <p className="text-neutral-400 font-medium text-sm sm:text-base leading-relaxed mt-3">
+          <p className="text-neutral-600 font-medium text-sm sm:text-base leading-relaxed mt-3">
             Analyze horsepower, aerodynamic diagnostics, and track telemetry head-to-head. Select any flagship model to inspect performance metrics.
           </p>
         </div>
 
-        {/* 3-Card Grid */}
+        {/* 3-Card Grid (Grounded on the darkening studio floor) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 justify-center items-stretch">
           {featuredCars.map((car) => (
             <FeaturedCarCard
