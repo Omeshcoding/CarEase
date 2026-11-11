@@ -1,33 +1,76 @@
 import React from 'react';
-import ReusableCard from './ReusableCard';
+import Link from 'next/link';
+import FeaturedCarCard from './FeaturedCarCard';
+
+const featuredCars = [
+  {
+    model: 'Aston Martin DBS',
+    imgUrl: '/images/Aston_Martin_DBS.png',
+    badge: 'Super GT',
+    specs: ['Twin-Turbo V12', '715 HP', '3.4s 0-60'],
+    search: 'Aston Martin',
+  },
+  {
+    model: 'MG 4',
+    imgUrl: '/images/MG4.png',
+    badge: 'Dual Motor EV',
+    specs: ['AWD Electric', '435 HP', '3.8s 0-60'],
+    search: 'MG',
+  },
+  {
+    model: 'Maserati MC20',
+    imgUrl: '/images/Maserati MC20.png',
+    badge: 'Carbon Monocoque',
+    specs: ['Nettuno 3.0L V6', '621 HP', '2.9s 0-60'],
+    search: 'Maserati',
+  },
+];
 
 const FeaturedComparison = () => {
   return (
-    <>
-      <section className="py-20 px-10 bg-gradient-to-b from-white to-[#908C8D]">
-        <h2 className="text-[30px] font-bigHeadings tracking-tighter sm:text-[40px] md:text-[45px] xl:text-[50px] font-normal sm:px-20">
-          Featured Cars
-        </h2>
-
-        <div className="md:flex justify-center text-center text-[#312C2C] md:px-12 sm:px-20">
-          <ReusableCard
-            model="Aston Martin DBS"
-            imgUrl="/images/Aston_Martin_DBS.png"
-          />
-          <ReusableCard model="MG 4" imgUrl="/images/MG4.png" />
-          <ReusableCard
-            model="Maserati MC20"
-            imgUrl="/images/Maserati MC20.png"
-          />
+    <section id="featured" className="w-full bg-gradient-to-b from-neutral-100 via-[#141416] to-black py-20 sm:py-28 border-t border-neutral-200/60 scroll-mt-24">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8">
+        {/* Header (Light on top of gradient) */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="text-xs font-black uppercase tracking-widest text-[#E11D48] bg-[#E11D48]/10 px-3 py-1 rounded-full border border-[#E11D48]/30">
+            Pinnacle Performance
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-black italic tracking-tight uppercase text-neutral-900 mt-4">
+            <span className="text-[#E11D48]">Featured</span> Showdowns
+          </h2>
+          <p className="text-neutral-600 font-medium text-sm sm:text-base leading-relaxed mt-3">
+            Analyze horsepower, aerodynamic diagnostics, and track telemetry head-to-head. Select any flagship model to inspect performance metrics.
+          </p>
         </div>
 
-        <div className="flex justify-center">
-          <button className="w-[194px] h-12 sm:w-[30%] lg:w-[25%] md:h-16 text-sm md:text-xl mt-12 bg-[#E11D48] hover:bg-[#E4335A] text-white rounded-xl">
-            View Comparison
-          </button>
+        {/* 3-Card Grid (Grounded on the darkening studio floor) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 justify-center items-stretch">
+          {featuredCars.map((car) => (
+            <FeaturedCarCard
+              key={car.model}
+              model={car.model}
+              imgUrl={car.imgUrl}
+              badge={car.badge}
+              specs={car.specs}
+              search={car.search}
+            />
+          ))}
         </div>
-      </section>
-    </>
+
+        {/* Primary CTA */}
+        <div className="flex justify-center mt-14">
+          <Link
+            href="/comparison"
+            className="group inline-flex items-center gap-3 bg-[#E11D48] hover:bg-[#f43f5e] text-white font-black uppercase italic tracking-wider text-sm sm:text-base px-8 py-4 rounded-xl shadow-[0_0_25px_rgba(225,29,72,0.4)] transition-all hover:scale-105"
+          >
+            <span>Launch Comparison Vault</span>
+            <span className="transform transition-transform duration-300 group-hover:translate-x-2">
+              →
+            </span>
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 };
 

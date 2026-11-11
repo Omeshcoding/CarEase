@@ -1,51 +1,79 @@
 import React from 'react';
-import mclarenLogo from '../public/images/mclaren-logo.png';
+import Link from 'next/link';
+import Image from 'next/image';
+
 import bmwLogo from '../public/images/bmw-logo.png';
+import LamborghiniLogo from '../public/images/Lamborghini-Logo.png';
+import mclarenLogo from '../public/images/mclaren-logo.png';
 import maseratiLogo from '../public/images/maserati-logo.png';
 import ToyotaLogo from '../public/images/Toyota.png';
-import MarutiLogo from '../public/images/marutilogo.png';
 import TataLogo from '../public/images/Tatalogo.png';
-import LamborghiniLogo from '../public/images/Lamborghini-Logo.png';
-import Image from 'next/image';
+import MarutiLogo from '../public/images/marutilogo.png';
+
+const brands = [
+  { name: 'BMW', logo: bmwLogo, query: 'BMW' },
+  { name: 'Lamborghini', logo: LamborghiniLogo, query: 'Lamborghini' },
+  { name: 'McLaren', logo: mclarenLogo, query: 'McLaren' },
+  { name: 'Maserati', logo: maseratiLogo, query: 'Maserati' },
+  { name: 'Toyota', logo: ToyotaLogo, query: 'Toyota' },
+  { name: 'Tata', logo: TataLogo, query: 'Tata' },
+  { name: 'Maruti', logo: MarutiLogo, query: 'Maruti' },
+];
+
 const PopularBrands = () => {
   return (
-    // <section className="md:px-28 h-[1700px] sm:h-[1000px] lg:h-[800px] md:text-left py-14 bg-gradient-to-b to-white from-[#908C8D] mb-20">
-      
-    //   <h4 className="md:mx-2 text-[30px] text-center sm:text-start font-bigHeadings tracking-tighter sm:text-[40px] md:text-[50px] font-normal">
-
-      <section className="brands-xsm h-[1000px] md:h-[890px] lg:h-[700px] xl:h-[700px] mx-10 py-2 md:py-20 px-2 md:px-20 items-center">
-       <div className="gap-10">
-          <h4 className="text-[30px] text-center sm:text-start font-headings tracking-tighter sm:text-[40px] md:text-[50px] font-normal">
-            Popular Brands
-          </h4>
-     
-          <div className="flex flex-wrap gap-4 md:gap-20 lg:gap-16 mt-10 justify-center md:justify-around items-center h-[250px]">
-            {[
-              bmwLogo,
-              LamborghiniLogo,
-              maseratiLogo,
-              ToyotaLogo,
-              TataLogo,
-              MarutiLogo,
-              mclarenLogo,
-            ].map((logo) => (
-            <div
-              className="border-2 border-[#9e9c9c] h-[120px] w-[170px] xl:h-[150px] xl:w-[220px] flex items-center gap-20"
-              key={logo}
-            >
-              <Image
-                src={logo}
-                width={200}
-                height={250}
-                alt="mc"
-                className="bg-white w-[40%] h-[50%] mx-auto py-auto bg-cover bg-center"
-              />
-            </div>
-            ))}
+    <section id="brands" className="w-full bg-gradient-to-b from-white via-neutral-50 to-neutral-100 py-16 sm:py-24 border-t border-neutral-200/60 scroll-mt-24">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <span className="text-xs font-black uppercase tracking-widest text-[#E11D48] bg-[#E11D48]/10 px-3 py-1 rounded-full border border-[#E11D48]/30 w-fit">
+              Marque Heritage
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black italic tracking-tight uppercase text-neutral-900 mt-3">
+              <span className="text-[#E11D48]">Popular</span> Brands
+            </h2>
+            <p className="text-neutral-600 font-medium max-w-xl text-sm sm:text-base leading-relaxed mt-2">
+              Explore precision engineering and motorsport pedigree from premier global manufacturers. Filter inventory with one click.
+            </p>
           </div>
+          <Link
+            href="/carlist"
+            className="group inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E11D48] hover:text-neutral-900 transition-colors"
+          >
+            <span>View All Manufacturers</span>
+            <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </Link>
         </div>
-      </section>     
-    );
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-5">
+          {brands.map((brand) => (
+            <Link
+              key={brand.name}
+              href={`/carlist?search=${encodeURIComponent(brand.query)}`}
+              className="group relative flex flex-col items-center justify-center p-5 rounded-2xl bg-white border border-neutral-200/80 hover:border-[#E11D48]/50 shadow-md hover:shadow-xl hover:shadow-[#E11D48]/15 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-[#E11D48]/0 group-hover:bg-[#E11D48]/5 blur-xl transition-all duration-500 pointer-events-none" />
+              <div className="w-full h-20 flex items-center justify-center p-2 relative z-10 bg-neutral-50 group-hover:bg-white rounded-xl border border-neutral-100 transition-all">
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={120}
+                  height={80}
+                  className="max-h-12 w-auto max-w-[85%] object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <span className="text-xs font-bold uppercase tracking-wider text-neutral-800 group-hover:text-[#E11D48] transition-colors mt-3 text-center z-10">
+                {brand.name}
+              </span>
+              <span className="text-[10px] font-semibold text-[#E11D48] opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 z-10">
+                Explore Fleet →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default PopularBrands;
